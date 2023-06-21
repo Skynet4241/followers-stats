@@ -1,4 +1,7 @@
-import { useGetUsersInfoQuery } from "../../API/getUsersInfo";
+import {
+  useGetUsersInfoQuery,
+  useUpdateUsersInfoMutation,
+} from "../../API/getUsersInfo";
 import Icons from "../../../images/icons.png";
 import GoIT from "../../../images/goit.png";
 import {
@@ -20,9 +23,25 @@ import { useState } from "react";
 export const Tweets = () => {
   const [limit, setLimit] = useState(3);
   const { data, isLoading } = useGetUsersInfoQuery({ limit });
+  const [updateUsersInfo] = useUpdateUsersInfoMutation();
 
   const handleLoadMore = () => {
     setLimit(limit + 3);
+  };
+
+  const handleFollowClick = async (id, userFollowers) => {
+    let newFollowers;
+
+    if (userFollowers === 100500) {
+      newFollowers = userFollowers + 1;
+    } else {
+      newFollowers = userFollowers - 1;
+    }
+    const updateFollowers = {
+      followers: newFollowers,
+    };
+
+    await updateUsersInfo({ id, body: updateFollowers });
   };
 
   return (
@@ -50,7 +69,12 @@ export const Tweets = () => {
                       {item.followers.toLocaleString("en-US")} followers
                     </TweetsUserInfoText>
                   </UserInfoWrap>
-                  <FollowButton>follow</FollowButton>
+                  <FollowButton
+                    onClick={() => handleFollowClick(item.id, item.followers)}
+                    following={item.followers > 100500 ? "true" : undefined}
+                  >
+                    {item.followers > 100500 ? "following" : "follow"}
+                  </FollowButton>
                 </TweetsUserInfoWrap>
               </CardWrap>
             ))}

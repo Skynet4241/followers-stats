@@ -15,8 +15,18 @@ export const usersInfoApi = createApi({
           limit,
         },
       }),
+      providesTags: ["Users"],
+    }),
+    updateUsersInfo: builder.mutation({
+      query: ({ id, body }) => ({
+        url: `/users/${id}`,
+        method: "PUT",
+        body,
+      }),
+      invalidatesTags: ["Users"],
     }),
   }),
 });
 
-export const { useGetUsersInfoQuery } = usersInfoApi;
+export const { useGetUsersInfoQuery, useUpdateUsersInfoMutation } =
+  usersInfoApi;

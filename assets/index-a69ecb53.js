@@ -216,10 +216,6 @@ Error generating stack: `+o.message+`
 
   position: absolute;
   top: -107px;
-  left: 45px;
-  @media screen and (min-width: 768px) {
-    left: 65px;
-  }
 `,Vk=ae.img`
   width: 70px;
   height: 70px;

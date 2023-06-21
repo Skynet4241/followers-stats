@@ -73,11 +73,8 @@ export const CircleLine = styled.div`
 
   position: absolute;
   top: -107px;
-  left: 45px;
-  @media screen and (min-width: 768px) {
-    left: 65px;
-  }
 `;
+
 export const TweetsUserInfoImage = styled.img`
   width: 70px;
   height: 70px;

@@ -27,5 +27,11 @@ export const HeaderNavLink = styled(NavLink)`
   font-size: 18px;
   line-height: 1.16;
   letter-spacing: 0.02em;
-  color: #f5fbf2;
+  color: rgba(255, 206, 78, 1);
+
+  font-family: "Montserrat";
+  font-weight: 600;
+  @media screen and (min-width: 768px) {
+    font-size: 26px;
+  }
 `;

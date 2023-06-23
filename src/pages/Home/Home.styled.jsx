@@ -23,7 +23,7 @@ export const HomepageTitle = styled.h1`
     max-width: 440px;
   }
   @media screen and (min-width: 1200px) {
-    font-size: 46px;
+    font-size: 40px;
     max-width: 540px;
   }
 `;
@@ -53,7 +53,7 @@ export const HomepageDescription = styled.p`
     max-width: 440px;
   }
   @media screen and (min-width: 1200px) {
-    font-size: 26px;
+    font-size: 24px;
     max-width: 540px;
   }
 `;

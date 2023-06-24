@@ -22,6 +22,7 @@ import {
 import { useEffect, useState } from "react";
 import sprite from "../../../images/sprite.svg";
 import { FilterDropdown } from "../../components/Dropdown/FilterDropdown";
+import { ThreeDots } from "react-loader-spinner";
 
 export const Tweets = () => {
   const [limit, setLimit] = useState(3);
@@ -72,7 +73,16 @@ export const Tweets = () => {
   return (
     <>
       {isLoading ? (
-        <TweetsWrap>Loading...</TweetsWrap>
+        <TweetsWrap>
+          <ThreeDots
+            height="80"
+            width="80"
+            radius="9"
+            color="#d53d5c"
+            ariaLabel="three-dots-loading"
+            visible={true}
+          />
+        </TweetsWrap>
       ) : (
         <>
           <BackToHomeButton to="/">

@@ -140,6 +140,10 @@ export const FollowButton = styled.button`
   line-height: 1.22;
   text-transform: uppercase;
   color: #373737;
+  transition: scale 0.3s ease-in-out;
+  &:hover {
+    scale: 1.05;
+  }
   @media screen and (min-width: 768px) {
     margin-top: 26px;
     width: 195px;
@@ -170,6 +174,10 @@ export const LoadMoreButton = styled.button`
   border: none;
   margin-bottom: 20px;
   cursor: pointer;
+  transition: background 0.3s ease-in-out;
+  &:hover {
+    background: #ea9137;
+  }
   @media screen and (min-width: 768px) {
     margin-top: 26px;
     width: 195px;

@@ -31,7 +31,11 @@ export const HeaderNavLink = styled(NavLink)`
 
   font-family: "Montserrat";
   font-weight: 600;
+
+  &.active {
+    color: #d53d5c; /* Измените цвет на ваш выбор */
+  }
   @media screen and (min-width: 768px) {
-    font-size: 26px;
+    font-size: 20px;
   }
 `;

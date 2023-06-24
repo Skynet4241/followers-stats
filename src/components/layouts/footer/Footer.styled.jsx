@@ -17,6 +17,11 @@ export const FooterIconList = styled.ul`
 `;
 export const SVGIcon = styled.svg`
   fill: #d53d5c;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    fill: #ea9137;
+    scale: 1.05;
+  }
 `;
 export const FooterHeading = styled.h2`
   font-size: 16px;

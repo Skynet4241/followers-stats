@@ -5,6 +5,7 @@ import {
 import Icons from "../../../images/icons.png";
 import GoIT from "../../../images/goit.png";
 import {
+  BackToHomeButton,
   CardImageIcons,
   CardImageLogoIcons,
   CardWrap,
@@ -19,6 +20,7 @@ import {
   UserInfoWrap,
 } from "./Tweets.styled";
 import { useState } from "react";
+import sprite from "../../../images/sprite.svg";
 
 export const Tweets = () => {
   const [limit, setLimit] = useState(3);
@@ -50,6 +52,12 @@ export const Tweets = () => {
         <TweetsWrap>Loading...</TweetsWrap>
       ) : (
         <>
+          <BackToHomeButton to="/">
+            <svg className="icon-arrow-left" width="24px" height="24px">
+              <use href={`${sprite}#icon-arrow-left`}></use>
+            </svg>
+            Back to home
+          </BackToHomeButton>
           <TweetsWrap>
             {data.map((item) => (
               <CardWrap key={item.id}>

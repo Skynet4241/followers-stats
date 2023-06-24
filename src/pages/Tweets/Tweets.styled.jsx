@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 export const TweetsWrap = styled.div`
@@ -5,7 +6,7 @@ export const TweetsWrap = styled.div`
   justify-content: center;
   flex-wrap: wrap;
   gap: 20px;
-  margin: 25px 0;
+  margin: 0 0 25px;
   max-height: auto;
 `;
 
@@ -28,7 +29,20 @@ export const CardWrap = styled.div`
     max-width: 380px;
   }
 `;
-
+export const BackToHomeButton = styled(NavLink)`
+  display: flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: 10px;
+  font-family: "Montserrat";
+  font-size: 14px;
+  font-weight: 600;
+  color: red;
+  padding: 10px 20px;
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+  }
+`;
 export const TweetsUserInfoWrap = styled.div`
   display: flex;
   flex-direction: column;

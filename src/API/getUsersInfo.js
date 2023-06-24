@@ -7,13 +7,9 @@ export const usersInfoApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: BASE_URL }),
   endpoints: (builder) => ({
     getUsersInfo: builder.query({
-      query: ({ page = 1, limit }) => ({
+      query: () => ({
         url: `/users`,
         method: "GET",
-        params: {
-          page,
-          limit,
-        },
       }),
       providesTags: ["Users"],
     }),

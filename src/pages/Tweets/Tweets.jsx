@@ -19,17 +19,26 @@ import {
   TweetsWrap,
   UserInfoWrap,
 } from "./Tweets.styled";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import sprite from "../../../images/sprite.svg";
+import { FilterDropdown } from "../../components/Dropdown/FilterDropdown";
 
 export const Tweets = () => {
   const [limit, setLimit] = useState(3);
-  const { data, isLoading } = useGetUsersInfoQuery({ limit });
+  const [filter, setFilter] = useState("show_all");
+  const { data, isLoading } = useGetUsersInfoQuery();
   const [updateUsersInfo] = useUpdateUsersInfoMutation();
+  const [filteredData, setFilteredData] = useState([]);
 
   const handleLoadMore = () => {
     setLimit(limit + 3);
   };
+
+  useEffect(() => {
+    if (data !== undefined) {
+      setFilteredData(data);
+    }
+  }, [data]);
 
   const handleFollowClick = async (id, userFollowers) => {
     let newFollowers;
@@ -46,6 +55,20 @@ export const Tweets = () => {
     await updateUsersInfo({ id, body: updateFollowers });
   };
 
+  const handleFilterChange = (value) => {
+    setFilter(value);
+  };
+
+  const filtered = filteredData.filter((item) => {
+    if (filter === "show_all") {
+      return item;
+    } else if (filter === "follow") {
+      return item.followers === 100500;
+    } else if (filter === "followings") {
+      return item.followers === 100501;
+    }
+  });
+
   return (
     <>
       {isLoading ? (
@@ -58,8 +81,9 @@ export const Tweets = () => {
             </svg>
             Back to home
           </BackToHomeButton>
+          <FilterDropdown onChange={handleFilterChange} />
           <TweetsWrap>
-            {data.map((item) => (
+            {filtered.slice(0, limit).map((item) => (
               <CardWrap key={item.id}>
                 <CardImageLogoIcons src={GoIT} alt="logo-go-it" />
                 <CardImageIcons src={Icons} alt="icons" />
@@ -87,7 +111,7 @@ export const Tweets = () => {
               </CardWrap>
             ))}
           </TweetsWrap>
-          {limit === 12 ? null : (
+          {filtered.length <= limit ? null : (
             <LoadMoreButton onClick={handleLoadMore}>Load more</LoadMoreButton>
           )}
         </>

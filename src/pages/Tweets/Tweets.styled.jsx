@@ -39,6 +39,10 @@ export const BackToHomeButton = styled(NavLink)`
   font-weight: 600;
   color: red;
   padding: 10px 20px;
+  transition: color 0.3s ease-in-out;
+  &:hover {
+    color: #ea9137;
+  }
   @media screen and (min-width: 768px) {
     font-size: 16px;
   }

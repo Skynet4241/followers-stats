@@ -90,8 +90,12 @@ Error generating stack: `+o.message+`
 
   font-family: "Montserrat";
   font-weight: 600;
+
+  &.active {
+    color: #d53d5c; /* Измените цвет на ваш выбор */
+  }
   @media screen and (min-width: 768px) {
-    font-size: 26px;
+    font-size: 20px;
   }
 `,Px="/followers-stats/assets/logo-562ec0ca.png",bx=ae.div`
   padding: 0 20px;
@@ -118,6 +122,11 @@ Error generating stack: `+o.message+`
   gap: 25px;
 `,jl=ae.svg`
   fill: #d53d5c;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    fill: #ea9137;
+    scale: 1.05;
+  }
 `,Ax=ae.h2`
   font-size: 16px;
   text-align: center;
@@ -332,6 +341,10 @@ Error generating stack: `+o.message+`
   line-height: 1.22;
   text-transform: uppercase;
   color: #373737;
+  transition: scale 0.3s ease-in-out;
+  &:hover {
+    scale: 1.05;
+  }
   @media screen and (min-width: 768px) {
     margin-top: 26px;
     width: 195px;
@@ -360,6 +373,10 @@ Error generating stack: `+o.message+`
   border: none;
   margin-bottom: 20px;
   cursor: pointer;
+  transition: background 0.3s ease-in-out;
+  &:hover {
+    background: #ea9137;
+  }
   @media screen and (min-width: 768px) {
     margin-top: 26px;
     width: 195px;
